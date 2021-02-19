@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useInterval } from './tools/useInterval';
+
 const numCols = 5;
 const numRows = 5;
 
@@ -8,11 +11,16 @@ function App() {
 		grid.push(Array.from(Array(numCols), () => 0));
 	}
 
+	useInterval(() => {
+		//logic goes here
+	}, 1000);
+
 	return (
 		<div
 			style={{
 				display: 'grid',
 				gridTemplateColumns: `repeat(${numCols}, 30px)`,
+				justifyContent: 'center',
 			}}
 		>
 			{grid.map((rows, i) =>
